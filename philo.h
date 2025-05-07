@@ -6,7 +6,7 @@
 /*   By: maeskhai <maeskhai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 11:51:56 by maeskhai          #+#    #+#             */
-/*   Updated: 2025/04/24 13:21:24 by maeskhai         ###   ########.fr       */
+/*   Updated: 2025/05/05 15:27:58 by maeskhai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <stdio.h>
 #include <pthread.h>
 
+typedef struct s_table	t_table;
+
 typedef struct s_philo
 {
 	int				index;
@@ -25,7 +27,7 @@ typedef struct s_philo
 	long long		last_meal;
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
-	// t_table			*table;
+	t_table			*table;
 	pthread_t		thread;
 }   t_philo;
 
@@ -42,7 +44,7 @@ typedef struct s_table
 	long long		start_time;
 	pthread_mutex_t *forks;
 	pthread_mutex_t	print_mutex;
-	// pthread_t		*philo;
+	pthread_t		monitor;
 	t_philo			*philos;
 }   t_table;
 
